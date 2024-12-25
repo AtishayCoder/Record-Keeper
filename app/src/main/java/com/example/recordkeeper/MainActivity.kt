@@ -1,5 +1,6 @@
 package com.example.recordkeeper
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -29,15 +30,22 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.reset_running -> {
-            Toast.makeText(this, "Clearing all running records... Stand-by...", Toast.LENGTH_LONG).show()
+            deleteSharedPreferences("running")
+            Toast.makeText(this, "Cleared all running records!", Toast.LENGTH_LONG).show()
+            recreate()
             true
         }
         R.id.reset_cycling -> {
-            Toast.makeText(this, "Clearing all cycling records... Stand-by...", Toast.LENGTH_LONG).show()
+            deleteSharedPreferences("cycling")
+            Toast.makeText(this, "Cleared all cycling records!", Toast.LENGTH_LONG).show()
+            recreate()
             true
         }
         R.id.reset_all -> {
-            Toast.makeText(this, "Clearing all records... Stand-by...", Toast.LENGTH_LONG).show()
+            deleteSharedPreferences("running")
+            deleteSharedPreferences("cycling")
+            Toast.makeText(this, "Cleared all records!", Toast.LENGTH_LONG).show()
+            recreate()
             true
         }
         else -> super.onOptionsItemSelected(item)
