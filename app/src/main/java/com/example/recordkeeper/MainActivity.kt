@@ -6,7 +6,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
+import com.example.recordkeeper.cycling.CyclingFragment
 import com.example.recordkeeper.databinding.ActivityMainBinding
+import com.example.recordkeeper.running.RunningFragment
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
